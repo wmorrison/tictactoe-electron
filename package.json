@@ -1,0 +1,61 @@
+{
+  "name": "tictactoe-app",
+  "version": "0.1.0",
+  "description": "TicTacToe Electron App",
+  "main": "src/electron-starter.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmorrison/tictactoe-electron.git"
+  },
+  "author": "PageFit Design, LLC",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmorrison/tictactoe-electron/issues"
+  },
+  "homepage": "./",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "build": {
+    "appId": "com.pagefitdesign.tictactoe.electron",
+    "mac": {
+      "publish": [
+        "github"
+      ],
+      "category": "public.app-category.utilities"
+    },
+    "nsis": {
+      "createDesktopShortcut": "always"
+    }
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dev": "nf start -p 3000",
+    "dist": "build",
+    "publish": "build -p onTagOrDraft"
+  },
+  "devDependencies": {
+    "electron": "^4.0.1",
+    "electron-builder": "^20.38.4",
+    "electron-reload": "^1.4.0",
+    "foreman": "^3.0.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
+    "react-scripts": "2.1.3"
+  },
+  "dependencies": {
+    "electron-log": "^2.2.17",
+    "electron-updater": "^4.0.6"
+  }
+}
