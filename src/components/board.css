@@ -1,0 +1,16 @@
+td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+  }
+  td:hover {
+    cursor: pointer;
+  }
+  .vert {
+    border-left: .25em solid #aaa;
+    border-right: .25em solid #aaa;
+  }
+  .hori {
+    border-top: .25em solid #aaa;
+    border-bottom: .25em solid #aaa;
+  }
