@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { PLAYERS } from "../constants/players";
-import { playerSelection, nextPlayer } from "../actions/turnActions";
+import { playerSelection } from "../actions/turnActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle, faTimes } from "@fortawesome/pro-regular-svg-icons"
 
@@ -27,11 +27,9 @@ class CellComponent extends React.Component {
     }
 
     handleTic() {
-        if(!this.state.locked) {
+        if(!this.state.locked && !this.props.gameover) {
             this.setState({ locked: true, glyph: this.props.player });
-            const nextPlayer = this.props.player === PLAYERS.X ? PLAYERS.O : PLAYERS.X;
             this.props.select(this.props.player, this.props.col, this.props.row);
-            this.props.nextPlayer(nextPlayer);
         }
     }
 
@@ -45,12 +43,12 @@ class CellComponent extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    player: state.appState.playerTurn
+    player: state.appState.playerTurn,
+    gameover: state.appState.gameResults.gameover
 });
 
 const mapDispatchToProps = dispatch => ({
-    select: (player, col, row) => dispatch(playerSelection(player, col, row)),
-    nextPlayer: player => dispatch(nextPlayer(player))
+    select: (player, col, row) => dispatch(playerSelection(player, col, row))
 });
 
 const Cell = connect(mapStateToProps, mapDispatchToProps)(CellComponent);
